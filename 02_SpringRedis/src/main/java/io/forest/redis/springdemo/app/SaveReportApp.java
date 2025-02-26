@@ -2,6 +2,7 @@ package io.forest.redis.springdemo.app;
 
 import io.forest.redis.springdemo.app.dto.ReportDTO;
 import io.forest.redis.springdemo.app.in.SaveReport;
+import io.forest.redis.springdemo.app.in.SaveReportCommand;
 import io.forest.redis.springdemo.app.out.ReportRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +18,9 @@ public class SaveReportApp implements SaveReport {
     ReportRepository repository;
 
     @Override
-    public ReportDTO handle(ReportDTO reportDTO) {
-        log.info("Save report to repository [reportDTO={}]", reportDTO);
+    public ReportDTO handle(SaveReportCommand command) {
+        log.info("Save report to repository [reportDTO={}]", command.reportDTO());
 
-        return this.repository.save(reportDTO);
+        return this.repository.save(command.reportDTO());
     }
 }

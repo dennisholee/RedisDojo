@@ -3,8 +3,6 @@ package io.forest.redis.springdemo.adapter.restapi.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.forest.redis.springdemo.app.dto.ReportDTO;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
@@ -14,9 +12,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Report {
 
-
     Long id;
-
 
     String name;
 
