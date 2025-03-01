@@ -1,0 +1,43 @@
+app:
+  cache:
+    config:
+      level1PropertiesList:
+        - cacheName: GreetL1
+          allowNullValues: false
+          ttlInMinutes: 2
+      level2PropertiesList:
+        - cacheName: GreetL2
+          allowNullValues: false
+          ttlInMinutes: 2
+        - cacheName: Something
+          allowNullValues: true
+          ttlInMinutes: 5
+
+
+server:
+  port: 8081
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    host: localhost
+    port: 6379
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        # info,health,caches
+
+logging:
+  level:
+    org:
+      springframework:
+        cache: TRACE
+    com:
+      github:
+        benmanes:
+          caffeine: TRACE
